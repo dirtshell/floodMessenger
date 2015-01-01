@@ -13,12 +13,14 @@ client = TwilioRestClient(account_sid, auth_token)
 
 # Sends the alert SMS and logs it
 def send_alert():
+	contacts = ['+13053893667', '+19545947669', '+15712685407']
 	date_time = datetime.datetime.now()
 	time = strftime("%Y-%m-%d %H:%M:%S", gmtime())
-	message = client.messages.create(
-		body='ALERT: The flood sensor has been triggered at {0}'.format(time),
-		to='+13053893667',
-		from_='+15613256723')
+	for contact in contacts:
+		message = client.messages.create(
+			body='ALERT: The flood sensor has been triggered at {0}'.format(time),
+			to=contact,
+			from_='+15613256723')
 	logging.info('ALERT: The flood sensor has been triggered at {0}'.format(time)
 	
 	
