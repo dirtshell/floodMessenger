@@ -34,7 +34,7 @@ def send_alert(channel):
 			body='ALERT: The flood sensor has been triggered at {0}'.format(time),
 			to=contact,
 			from_='+15613256723')
-	logging.info('ALERT: The flood sensor has been triggered at {0}'.format(time)
+	logging.info('ALERT: The flood sensor has been triggered at {0}'.format(time))
 	
 # Main loop
 while True:
